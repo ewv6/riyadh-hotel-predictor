@@ -43,7 +43,7 @@ hotel_names = sorted(hotel_map.keys())
 
 # ── Header ────────────────────────────────────────────────────────────────────
 st.title("🏨 Riyadh Hotel Price Predictor")
-st.caption("83.1% accuracy · MAE ~82 SAR/night · Trained on 8,074 Riyadh hotels")
+st.caption("Trained on 8,074 Riyadh hotels")
 st.divider()
 
 # ── Inputs ────────────────────────────────────────────────────────────────────
