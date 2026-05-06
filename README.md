@@ -1,6 +1,6 @@
 # 🏨 Riyadh Hotel Price Predictor
 
-A machine learning app that predicts nightly hotel prices in Riyadh, Saudi Arabia.
+A machine learning app that predicts nightly hotel prices in Riyadh, Saudi Arabia with **83.1% accuracy**.
 
 🔗 **[Live Demo](https://ewv6-riyadh-hotel-predictor.streamlit.app)**
 
