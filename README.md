@@ -8,7 +8,7 @@ A machine learning app that predicts nightly hotel prices in Riyadh, Saudi Arabi
 
 ## Overview
 
-This project uses a **CrewAI multi-agent pipeline** to train a price prediction model on 8,074 Riyadh hotels. The trained model is served through a clean Streamlit web app.
+A price prediction model trained on 8,074 Riyadh hotels, served through a clean Streamlit web app.
 
 ---
 
@@ -45,8 +45,6 @@ check-in date  ──►  month, day, Saudi weekend flag  ───────�
 | Layer | Tools |
 |-------|-------|
 | ML Model | scikit-learn `HistGradientBoostingRegressor` |
-| Pipeline | CrewAI multi-agent (4 agents) |
-| LLM | Groq `llama-3.3-70b-versatile` (free tier) |
 | Web App | Streamlit |
 | Dataset | [Riyadh Hotels 2026 — Kaggle](https://www.kaggle.com/datasets/mohammedalsubaie/riyadh-hotels-2026) |
 
