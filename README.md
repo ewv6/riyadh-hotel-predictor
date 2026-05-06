@@ -1,6 +1,6 @@
 # 🏨 Riyadh Hotel Price Predictor
 
-A machine learning app that predicts nightly hotel prices in Riyadh, Saudi Arabia with **83.1% accuracy**.
+A machine learning app that predicts nightly hotel prices in Riyadh, Saudi Arabia.
 
 🔗 **[Live Demo](https://ewv6-riyadh-hotel-predictor.streamlit.app)**
 
@@ -8,30 +8,11 @@ A machine learning app that predicts nightly hotel prices in Riyadh, Saudi Arabi
 
 ## Overview
 
-This project uses a **CrewAI multi-agent pipeline** to train a price prediction model on 8,074 Riyadh hotels scraped from Booking.com and TripAdvisor. The trained model is served through a clean Streamlit web app.
-
----
-
-## Results
-
-| Metric | Value |
-|--------|-------|
-| Accuracy | **83.1%** |
-| MAPE | 16.9% |
-| MAE | 81.8 SAR / night |
-| Mean Bias | +1.4 SAR |
-
-| Price Tier | Accuracy |
-|------------|----------|
-| Budget (< 300 SAR) | 81.1% |
-| Mid-range (300–800 SAR) | 84.4% |
-| Luxury (> 800 SAR) | 82.9% |
+This project uses a **CrewAI multi-agent pipeline** to train a price prediction model on 8,074 Riyadh hotels. The trained model is served through a clean Streamlit web app.
 
 ---
 
 ## Demo
-
-![App Screenshot](https://i.imgur.com/placeholder.png)
 
 Enter a hotel name, rating, check-in date, and stay duration — the model returns the predicted nightly rate and total price in SAR.
 
@@ -87,17 +68,16 @@ streamlit run app.py
 - **Source:** Kaggle — Riyadh Hotels 2026
 - **Raw rows:** 9,849
 - **After cleaning:** 8,074
-- **Platforms:** Booking.com (7,238) · TripAdvisor (836)
 - **Known hotels:** 2,039 with target-encoded historical prices
 
 ---
 
 ## Key Engineering Decisions
 
-- **Separate models per platform** — Booking.com and TripAdvisor have different price distributions; training one model per platform eliminated a 95% feature dominance from `source_encoded`
 - **Target encoding for hotel names** — 5-fold KFold encoding of `hotel_name` into `hotel_mean_price` with no data leakage; became the #1 most important feature
 - **Log-transform target** — raw price skewness was 36.24; after `log1p` it dropped to −1.13, dramatically improving model fit
 - **Per-tier bias correction** — separate bias corrections for budget / mid / luxury tiers reduced mean bias from +22.9 SAR to +1.4 SAR
+- **Geographic clustering** — KMeans(12) on lat/lon captures neighbourhood-level pricing patterns
 
 ---
 
